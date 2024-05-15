@@ -43,4 +43,6 @@ If you're not satisfied with the build tool and configuration choices, you can e
 For more information on using Create React App and React itself, you can refer to the following documentation:
 
 - [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started)
+
 - [React documentation](https://reactjs.org/docs)
+
