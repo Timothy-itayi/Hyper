@@ -2,9 +2,9 @@
 // client/apiClient.ts
 
 // Function to fetch data from the backend API
-export async function fetchDataFromBackend() {
+export async function fetchDataFromRapidApi() {
     try {
-        const response = await fetch('/api/data');
+        const response = await fetch('/api/drivers');
         if (!response.ok) {
             throw new Error('Failed to fetch data from backend');
         }
