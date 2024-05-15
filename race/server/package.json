@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "tsx ./server.ts"
   },
@@ -11,6 +11,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@types/request": "^2.48.12"
   }
 }
