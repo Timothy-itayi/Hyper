@@ -34,7 +34,7 @@ function App() {
         {/* Main content */}
         <div className="container mx-auto mt-5">
         <Routes>
-            <Route path="/drivers" element={<Drivers drivers={[]} />} />
+            <Route path="/api/v1/drivers" element={<Drivers  />} />
             {/* Add more routes here */}
             <Route path="/" element={<>
               <h1 className="text-3xl font-bold">Welcome to the Fantasy F1 League!</h1>

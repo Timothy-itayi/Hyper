@@ -12,10 +12,12 @@
   "description": "",
   "dependencies": {
     "axios": "^1.6.8",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "request": "^2.88.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/request": "^2.48.12"
   }
 }
