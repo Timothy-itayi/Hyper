@@ -1,6 +1,6 @@
 export {};
 
-import { fetchDataFromRapidApi } from './server';
+import { fetchDataFromRapidApi } from './RapidApi';
 
 
 
@@ -8,7 +8,7 @@ import { fetchDataFromRapidApi } from './server';
 async function testFetchData() {
     try {
         const data = await fetchDataFromRapidApi();
-        console.log('Data from RapidAPI:', data);
+        console.log('Data from RapidAPI is JSON:', data);
     } catch (error) {
         console.error('Error fetching data:', error);
     }

@@ -1,5 +1,3 @@
-// models/driversStanding.ts
-
 interface Standing {
     position: number;
     points: number;
@@ -9,18 +7,16 @@ interface Constructor {
     name: string;
 }
 
-interface Driver {
-    id: string; 
+export interface Driver {
     firstName: string;
     lastName: string;
     standing: Standing;
     constructors: Constructor[];
 }
 
-interface ResponseData {
+export interface ResponseData {
     items: Driver[];
 }
 
-export default ResponseData;
-export type { Driver }; // Export Driver type for use in components
-//CLient side model
+
+//Server models //

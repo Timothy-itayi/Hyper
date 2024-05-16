@@ -1,55 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import { fetchDataFromRapidApi } from '../client/apiClient';
+import axios from 'axios';
+import { Driver } from '../models/driversStanding';
 
-// Define the type for your driver props
-type DriverProps = {
-    id: string;
-    name: string;
-    team: string;
-    points: number;
-    position: number;
-}
-
-// Define the type for your component props
-type DriversProps = {
-    drivers: DriverProps[]; // Pass an array of driver data
-}
-
-const Drivers: React.FC<DriversProps> = ({ drivers }) => {
-    // You can remove the useState hook for data since you're passing it directly as props
-    const [data, setData] = useState<DriverProps[] | null>(null);
+const Drivers: React.FC = () => {
+    const [data, setData] = useState<Driver[] | null>(null); // Use Driver[] type
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Fetch data from the client
-                const result = await fetchDataFromRapidApi();
-                // Set the fetched data to state
-                if (Array.isArray(result)) {
-                    setData(result);
-                }
+                const result = await axios.get('http://localhost:3000/api/v1/drivers');
+                setData(result.data); // Update state with the fetched drivers
             } catch (error) {
                 console.error('Error fetching data:', error);
                 // Handle error
             }
         };
-    
-        fetchData(); // Call the fetchData function
+
+        fetchData();
     }, []);
 
     return (
         <div>
-            {/* Conditional rendering based on the data */}
             {data ? (
                 <div>
                     <h1>Driver Standing</h1>
                     <ul>
-                        {data.map(({ id, name, team, points, position }) => (
-                            <li key={id}>
-                                <div>Name: {name}</div>
-                                <div>Team: {team}</div>
-                                <div>Points: {points}</div>
-                                <div>Position: {position}</div>
+                        {data.map((driver) => (
+                            <li key={driver.id}>
+                                <div>Name: {`${driver.firstName} ${driver.lastName}`}</div>
+                                <div>Team: {driver.constructors[0].name}</div> {/* Assuming there's only one constructor */}
+                                <div>Points: {driver.standing.points}</div>
+                                <div>Position: {driver.standing.position}</div>
                             </li>
                         ))}
                     </ul>

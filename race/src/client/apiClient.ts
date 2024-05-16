@@ -1,20 +1,21 @@
-// client/apiClient.ts
+// apiClient.ts
 
+import ResponseData from '../models/driversStanding';
 
+const apiUrl = 'http://localhost:3000/api/v1/drivers';
 
-// Function to fetch data from the backend API
-export async function fetchDataFromRapidApi() {
+export async function fetchDataFromClient(): Promise<ResponseData> {
     try {
-        console.log('Fetching data from RapidAPI...');
-        const response = await fetch('/api/data', {
+        console.log('Fetching data from backend...');
+        const response = await fetch(apiUrl, {
             headers: {
-                Accept: 'application/json' // Add Accept header to indicate JSON response
+                Accept: 'application/json',
             }
         });
         if (!response.ok) {
             throw new Error('Failed to fetch data from backend');
         }
-        const responseData = await response.json();
+        const responseData = await response.json() as ResponseData; // Explicitly cast the response to ResponseData
         console.log('Response data:', responseData); // Add console log to see the response data
         return responseData;
     } catch (error) {
