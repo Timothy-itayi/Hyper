@@ -6,7 +6,7 @@ export async function fetchDataFromRapidApi() {
         method: 'GET',
         url: 'https://hyprace-api.p.rapidapi.com/v1/seasons/8ac404c1-7494-4b04-b8a6-ee97913de526/drivers',
         headers: {
-            'X-RapidAPI-Key': '28cc18cd86msh2d23644af92c4fcp12a35cjsn875e2a90b205',
+            'X-RapidAPI-Key': 'xxxxx',
             'X-RapidAPI-Host': 'hyprace-api.p.rapidapi.com'
         }
     };
